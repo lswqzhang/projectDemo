@@ -58,6 +58,9 @@ public class ThreadSemaphore {
     }
     
     private static void printA_Z() {
+        if (INT_CHAR > 122) {
+            return;
+        }
         System.out.print(Thread.currentThread().getName());
         for (int j = 0; j < 3; j++) {
             if (INT_CHAR > 122) {
@@ -69,7 +72,8 @@ public class ThreadSemaphore {
     }
     
     public static void main(String[] args) throws InterruptedException {
-        B.acquire(); C.acquire(); // 开始只有A可以获取, BC都不可以获取, 保证了A最先执行
+        B.acquire();     // 同一个时间只有一个信号量，因此可以看作是互斥的，必须释放以后才可以进行下步操作
+        C.acquire();     // 开始只有A可以获取, BC都不可以获取, 保证了A最先执行
         
 
         new Thread(new ThreadA(), "A-->").start();
