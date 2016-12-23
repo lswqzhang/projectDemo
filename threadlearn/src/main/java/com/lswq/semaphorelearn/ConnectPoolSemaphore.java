@@ -6,6 +6,8 @@ import java.util.concurrent.Semaphore;
 
 /**
  * Created by zhangsw on 2016/12/23.
+ *
+ * 使用semaphor创建线程池
  */
 public class ConnectPoolSemaphore {
 
@@ -20,6 +22,7 @@ public class ConnectPoolSemaphore {
 
     /**
      * 初始化分配3个连接
+     *
      */
     public ConnectPoolSemaphore() {
         pool.add(new Conn());
