@@ -12,6 +12,7 @@
         <module>logdemo</module>
         <module>netty</module>
         <module>desginmodel</module>
+        <module>threadlearn</module>
     </modules>
 
 
