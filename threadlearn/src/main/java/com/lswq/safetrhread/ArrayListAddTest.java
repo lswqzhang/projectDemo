@@ -17,10 +17,13 @@ public class ArrayListAddTest {
     }
 
 
-
+    /**
+     * 测试多线程增加元素操作
+     * @throws InterruptedException
+     */
     public void testAddList() throws InterruptedException {
         List<Object> list = new ArrayList();
-        int threadCount = 1000;
+        int threadCount = 10000;
         CountDownLatch latch = new CountDownLatch(threadCount);
 
 
