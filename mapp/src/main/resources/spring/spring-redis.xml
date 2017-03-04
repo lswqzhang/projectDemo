@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+	<!-- redis配置文件配置 -->
+	<bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
+		<!-- 控制一个pool最多有多少个状态为idle的jedis实例 -->
+        <property name="maxTotal" value="${redis.maxTotal}" />
+        
+        <!-- 最大能够保持空闲状态的对象数 -->
+        <property name="maxIdle" value="${redis.maxIdle}" />
+
+        <!-- 最小能够保持空闲状态的对象数 -->
+        <property name="minIdle" value="${redis.minIdle}" />
+        
+        <!-- 超时时间 -->
+        <property name="maxWaitMillis" value="${redis.maxWaitMillis}" />
+        
+        <!-- 在borrow一个jedis实例时，是否提前进行validate操作；如果为true，则得到的jedis实例均是可用的 -->
+        <property name="testOnBorrow" value="${redis.testOnBorrow}"/>
+        
+        <!-- 在还会给pool时，是否提前进行validate操作 -->
+        <property name="testOnReturn" value="true"/>
+    </bean>
+
+    <bean id="shardedJedisPool" class="redis.clients.jedis.ShardedJedisPool"  scope="singleton">
+        <constructor-arg index="0" ref="jedisPoolConfig" />
+        <constructor-arg index="1">
+            <list>
+                <bean class="redis.clients.jedis.JedisShardInfo">
+                    <constructor-arg name="host" value="${redis.host}" />
+                    <constructor-arg name="port" value="${redis.port}" />
+                    <constructor-arg name="timeout" value="${redis.timeout}" />
+                    <constructor-arg name="weight" value="1" />
+                </bean>
+            </list>
+        </constructor-arg>
+    </bean>
+    
+    <bean id="jedisPool" class="redis.clients.jedis.JedisPool"  scope="singleton">
+          <constructor-arg index="0" ref="jedisPoolConfig"/>
+		  <constructor-arg index="1" value="${redis.host}"/>
+		  <constructor-arg index="2" value="${redis.port}" type="int"/>
+		  <constructor-arg index="3" value="${redis.timeout}" type="int"/>
+    </bean>
+</beans>
