@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- debug:当此属性设置为true时，将打印出logback内部日志信息，实时查看logback运行状态。默认值为false。 -->
+<configuration scan="true" scanPeriod="60 seconds" debug="false" status="warn">
+
+    <property name="APP_Name" value="logbackDemo"/>
+    <property name="log_path" value="/Users/zhangshaowei/logfile/" />
+    <timestamp key="bySecond" datePattern="yyyyMMdd'T'HHmmss"/>
+    <contextName>${APP_Name}</contextName>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- encoder 默认配置为PatternLayoutEncoder -->
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <appender name="TIME_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!-- 被写入的文件名，可以是相对目录，也可以是绝对目录，如果上级目录不存在会自动创建，没有默认值。 -->
+        <file>${log_path}TIME_FILE.log</file>
+        <!-- 如果是 true，日志被追加到文件结尾，如果是 false，清空现存文件，默认是true。 -->
+        <append>true</append>
+        <!-- 当发生滚动时，决定 RollingFileAppender 的行为，涉及文件移动和重命名 -->
+        <!-- TimeBasedRollingPolicy： 最常用的滚动策略，它根据时间来制定滚动策略，既负责滚动也负责出发 -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>logFile.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <!-- 告知 RollingFileAppender 合适激活滚动 -->
+        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <maxFileSize>5MB</maxFileSize>
+        </triggeringPolicy>
+
+        <!-- 对记录事件进行格式化 -->
+        <encoder>
+            <pattern>%-4relative [%thread] %-5level %logger{35} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <appender name="FIXED_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${log_path}FIXED_FILE.log</file>
+        <!-- FixedWindowRollingPolicy：根据固定窗口算法重命名文件的滚动策略。有以下子节点 -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+            <fileNamePattern>tests.%i.log.zip</fileNamePattern>
+            <minIndex>1</minIndex>
+            <maxIndex>3</maxIndex>
+        </rollingPolicy>
+        <!-- SizeBasedTriggeringPolicy： 查看当前活动文件的大小，如果超过指定大小会告知 RollingFileAppender 触发当前活动文件滚动 -->
+        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <!-- 这是活动文件的大小，默认值是10MB -->
+            <maxFileSize>5MB</maxFileSize>
+        </triggeringPolicy>
+        <encoder>
+            <pattern>%-4relative [%thread] %-5level %logger{35} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- level用来设置打印级别，大小写无关:TRACE, DEBUG, INFO, WARN, ERROR, ALL 和 OFF -->
+    <!-- logback为java中的包 -->
+    <logger name="logback"/>
+    <logger name="java.sql" level="debug" additivity="false">
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="TIME_FILE"/>
+        <appender-ref ref="FIXED_FILE"/>
+    </logger>
+    <!--logback.LogbackDemo：类的全路径 -->
+    <logger name="com.lswq" level="DEBUG" additivity="false">
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="TIME_FILE"/>
+        <appender-ref ref="FIXED_FILE"/>
+    </logger>
+    <!-- 默认是DEBUG -->
+    <root level="INFO">
+        <appender-ref ref="STDOUT" />
+        <appender-ref ref="TIME_FILE"/>
+        <appender-ref ref="FIXED_FILE"/>
+    </root>
+
+
+</configuration>

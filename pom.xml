@@ -16,6 +16,7 @@
         <module>mapp</module>
         <module>datastruct</module>
         <module>vm</module>
+        <module>elasticsearch</module>
     </modules>
 
 
@@ -23,7 +24,8 @@
         <org.springframework.version>4.3.3.RELEASE</org.springframework.version>
         <org.springframework.security.version>4.3.3.RELEASE</org.springframework.security.version>
         <!-- 防止json提示下载 -->
-        <com.fasterxml.jackson.version>2.5.1</com.fasterxml.jackson.version>
+        <com.fasterxml.jackson.version>2.6.6</com.fasterxml.jackson.version>
+        <elasticsearch-version>2.3.5</elasticsearch-version>
     </properties>
 
 
@@ -31,7 +33,7 @@
 
         <dependencies>
 
-            <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
+            <!-- 日志 -->
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-api</artifactId>
@@ -39,7 +41,6 @@
             </dependency>
 
 
-            <!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->
             <dependency>
                 <groupId>ch.qos.logback</groupId>
                 <artifactId>logback-classic</artifactId>
@@ -47,14 +48,19 @@
             </dependency>
 
 
-            <!-- https://mvnrepository.com/artifact/org.logback-extensions/logback-ext-spring -->
             <dependency>
                 <groupId>org.logback-extensions</groupId>
                 <artifactId>logback-ext-spring</artifactId>
                 <version>0.1.4</version>
             </dependency>
-            
+            <!-- 日志 -->
+
             <!-- 单元测试 -->
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>4.12</version>
+            </dependency>
             <dependency>
                 <groupId>org.junit.jupiter</groupId>
                 <artifactId>junit-jupiter-api</artifactId>
@@ -128,14 +134,18 @@
                 <artifactId>jackson-databind</artifactId>
                 <version>${com.fasterxml.jackson.version}</version>
             </dependency>
-            <!-- https://mvnrepository.com/artifact/org.codehaus.jackson/jackson-xc -->
             <dependency>
                 <groupId>org.codehaus.jackson</groupId>
                 <artifactId>jackson-xc</artifactId>
                 <version>1.9.12</version>
             </dependency>
             <!-- 防止json提示下载 -->
-
+            <!-- es -->
+            <dependency>
+                <groupId>org.elasticsearch</groupId>
+                <artifactId>elasticsearch</artifactId>
+                <version>${elasticsearch-version}</version>
+            </dependency>
 
         </dependencies>
 
