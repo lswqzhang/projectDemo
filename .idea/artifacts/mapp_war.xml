@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="mapp:war">
+    <output-path>$PROJECT_DIR$/mapp/target</output-path>
+    <root id="archive" name="mapp.war">
+      <element id="artifact" artifact-name="mapp:war exploded" />
+    </root>
+  </artifact>
+</component>
