@@ -17,6 +17,7 @@
         <module>datastruct</module>
         <module>vm</module>
         <module>elasticsearch</module>
+        <module>joda</module>
     </modules>
 
 
@@ -26,6 +27,7 @@
         <!-- 防止json提示下载 -->
         <com.fasterxml.jackson.version>2.6.6</com.fasterxml.jackson.version>
         <elasticsearch-version>2.3.5</elasticsearch-version>
+        <joda-time-version>2.9.9</joda-time-version>
     </properties>
 
 
@@ -146,7 +148,11 @@
                 <artifactId>elasticsearch</artifactId>
                 <version>${elasticsearch-version}</version>
             </dependency>
-
+            <dependency>
+                <groupId>joda-time</groupId>
+                <artifactId>joda-time</artifactId>
+                <version>${joda-time-version}</version>
+            </dependency>
         </dependencies>
 
     </dependencyManagement>
