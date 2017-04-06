@@ -62,8 +62,8 @@
 
         <!-- 单元测试 -->
         <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
@@ -152,8 +152,22 @@
             <artifactId>commons-lang3</artifactId>
             <version>3.0</version>
         </dependency>
-        <!-- 字符串工具处理类 --> 
-        
+        <!-- 字符串工具处理类 -->
+
+        <!-- 防止json提示下载 -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-xc</artifactId>
+        </dependency>
+        <!-- 防止json提示下载 -->
         
         <!-- 配置文件管理工具 -->
         <dependency>
@@ -162,6 +176,15 @@
             <version>1.10</version>
         </dependency>
         <!-- 配置文件管理工具 -->
+        <dependency>
+            <groupId>org.apache.zookeeper</groupId>
+            <artifactId>zookeeper</artifactId>
+        </dependency>
+        <!-- 扫描包使用jar -->
+        <dependency>
+            <groupId>org.reflections</groupId>
+            <artifactId>reflections</artifactId>
+        </dependency>
     </dependencies>
     <build>
         <finalName>mapp</finalName>

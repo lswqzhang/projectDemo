@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.lang.reflect.ParameterizedType;
@@ -35,6 +37,21 @@ public class BaseController<T extends BaseController<T>> {
         logger = LoggerFactory.getLogger(subclass);
     }
 
+    /**
+     * PostConstruct在构造函数之后执行,init()方法之前执行
+     */
+    @PostConstruct
+    public void init() {
+        logger.debug("构造方法初始化执行此方法");
+    }
+
+    /**
+     * 方法在destroy()方法执行执行之后执行
+     */
+    @PreDestroy
+    public void destroy() {
+        logger.debug("");
+    }
 
     @ResponseBody
     @ExceptionHandler

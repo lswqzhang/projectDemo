@@ -8,18 +8,21 @@
     <context:component-scan base-package="com.lswq" >
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
+
+
+
+    <bean id="zookeeperClient" class="com.lswq.app.util.ZookeeperClientUtil">
+        <property name="servers" value="192.168.15.190:2181" />
+        <property name="mainPath" value="/configuration/mmap" />
+    </bean>
     
 	<!-- 引入配置文件 -->
-    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-        <property name="locations">
-            <list>
-                <!-- 这里支持多种寻址方式：classpath和file -->
-                <value>classpath:properties/redis.properties</value>
-                <!-- 推荐使用file的方式引入，这样可以将配置和代码分离 -->
-            </list>
-        </property>
+    <bean id="zooKeeperPropertyPlaceholderConfigurer" class="com.lswq.app.util.ZooKeeperPropertyPlaceholderConfigurer">
+        <property name="configurationClient" ref="zookeeperClient" />
+        <property name="scanBasePackage" value="com.lswq.app.util.spring" />
+        <property name="order" value="1" />
+        <property name="ignoreUnresolvablePlaceholders" value="true" />
     </bean>
-
 
     <bean id="myFilter" class="com.lswq.app.filter.RequestFilter"></bean>
 

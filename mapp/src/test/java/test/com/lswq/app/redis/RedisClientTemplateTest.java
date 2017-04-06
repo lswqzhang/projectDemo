@@ -2,7 +2,7 @@ package test.com.lswq.app.redis;
 
 import com.lswq.app.redis.impl.RedisClientTemplate;
 import com.lswq.app.redis.util.RedisDSReentrantLock;
-import com.lswq.app.util.spring.PropertiesUtils;
+import com.lswq.app.conf.SpringConfUtils;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -27,7 +27,7 @@ public class RedisClientTemplateTest extends BaseTest {
     @Test
     public void redisSet() {
 
-        String lockDept = MessageFormat.format(PropertiesUtils.getString("rediskey.RedisLock"), "LockDept");
+        String lockDept = MessageFormat.format(SpringConfUtils.redisLock, "LockDept");
 
         redisClient.set(lockDept, "11111");
     }

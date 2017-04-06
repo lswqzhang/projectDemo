@@ -4,6 +4,7 @@ package test.com.lswq.web;
 import ch.qos.logback.classic.LoggerContext;
 import ch.qos.logback.classic.joran.JoranConfigurator;
 import ch.qos.logback.core.joran.spi.JoranException;
+import com.lswq.app.conf.SpringConfUtils;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -40,6 +41,10 @@ import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppC
 @WebAppConfiguration
 @ContextConfiguration(locations = {"classpath:spring/spring-*.xml"})
 public class BaseTest {
+
+
+    @Autowired
+    private SpringConfUtils utils;
 
     static {
         // 通过spring获取配置文件
@@ -83,16 +88,16 @@ public class BaseTest {
 
     @Test
     public void test() {
-        logger.info("================================");
+        logger.info("=============={}==================", utils.getImagePath());
     }
 
 
     /**
-     * @deprecated 封装http测试
      * @param url
      * @param param
      * @param method
      * @return
+     * @deprecated 封装http测试
      */
     public String sendHttpUrlTest(String url, Map<String, String> param, RequestMethod method) {
         MockHttpServletRequestBuilder request = null;
