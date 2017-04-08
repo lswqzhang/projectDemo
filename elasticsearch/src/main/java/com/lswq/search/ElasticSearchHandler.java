@@ -27,13 +27,13 @@ public class ElasticSearchHandler {
 
     public ElasticSearchHandler() throws UnknownHostException {
         //使用本机做为节点
-        this("test.es.data.xxx.com");
+        this("192.168.15.168");
     }
 
     public ElasticSearchHandler(String ipAddress) throws UnknownHostException {
         //集群连接超时设置
         Settings settings = Settings.settingsBuilder()
-                .put("cluster.name", "data_test_cluster")
+                .put("cluster.name", "lswq_elastic")
                 .put("client.transport.sniff", "true")
                 .put("client.transport.ping_timeout", "10s")
                 .build();
