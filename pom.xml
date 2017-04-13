@@ -19,6 +19,7 @@
         <module>elasticsearch</module>
         <module>joda</module>
         <module>spring</module>
+        <module>thrift</module>
     </modules>
 
 
@@ -167,6 +168,13 @@
                 <artifactId>reflections</artifactId>
                 <version>0.9.10</version>
             </dependency>
+            <!-- https://mvnrepository.com/artifact/org.apache.thrift/libthrift -->
+            <dependency>
+                <groupId>org.apache.thrift</groupId>
+                <artifactId>libthrift</artifactId>
+                <version>0.10.0</version>
+            </dependency>
+
 
         </dependencies>
 
