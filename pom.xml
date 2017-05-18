@@ -20,6 +20,7 @@
         <module>joda</module>
         <module>spring</module>
         <module>thrift</module>
+        <module>jdbc</module>
     </modules>
 
 
@@ -175,6 +176,24 @@
                 <version>0.10.0</version>
             </dependency>
 
+            <dependency>
+                <groupId>com.mchange</groupId>
+                <artifactId>c3p0</artifactId>
+                <version>0.9.5.2</version>
+            </dependency>
+
+            <dependency>
+                <groupId>commons-dbutils</groupId>
+                <artifactId>commons-dbutils</artifactId>
+                <version>1.6</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>5.1.30</version>
+            </dependency>
 
         </dependencies>
 

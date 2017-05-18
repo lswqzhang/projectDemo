@@ -24,10 +24,14 @@ public class ElasticSearchHandler {
 
     private Client client;
 
+    public Client getClient() {
+        return client;
+    }
+
 
     public ElasticSearchHandler() throws UnknownHostException {
         //使用本机做为节点
-        this("test.es.data.xxx.com");
+        this("test.es.data.sankuai.com");
     }
 
     public ElasticSearchHandler(String ipAddress) throws UnknownHostException {
