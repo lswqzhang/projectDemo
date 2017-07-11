@@ -24,16 +24,20 @@ public class ElasticSearchHandler {
 
     private Client client;
 
+    public Client getClient() {
+        return client;
+    }
+
 
     public ElasticSearchHandler() throws UnknownHostException {
         //使用本机做为节点
-        this("192.168.15.168");
+        this("test.es.data.sankuai.com");
     }
 
     public ElasticSearchHandler(String ipAddress) throws UnknownHostException {
         //集群连接超时设置
         Settings settings = Settings.settingsBuilder()
-                .put("cluster.name", "lswq_elastic")
+                .put("cluster.name", "data_test_cluster")
                 .put("client.transport.sniff", "true")
                 .put("client.transport.ping_timeout", "10s")
                 .build();
