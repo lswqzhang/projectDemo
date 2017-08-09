@@ -20,7 +20,7 @@ public class CompletionServiceDemo {
 
 
     private void exec() throws InterruptedException, ExecutionException {
-        ExecutorService service = Executors.newSingleThreadExecutor(r -> {
+        ThreadPoolExecutor service = (ThreadPoolExecutor) Executors.newSingleThreadExecutor(r -> {
             Thread t = new Thread(r);
             t.setName("Task-" + atomicInteger.incrementAndGet());
             return t;
