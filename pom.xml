@@ -21,9 +21,6 @@
         <module>spring</module>
         <module>thrift</module>
         <module>jdbc</module>
-        <module>dubbo-provider</module>
-        <module>dubbo-consumer</module>
-        <module>dubbo-demo-api</module>
     </modules>
 
 
