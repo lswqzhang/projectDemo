@@ -1,10 +1,9 @@
 package com.lswq.model.creater.simplefactory;
 
+import com.lswq.untils.PropertiesUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.Properties;
 
 /**
@@ -26,20 +25,7 @@ public abstract class Factory {
         logger.debug("通过装载工厂配置设置简单工厂方法");
         //直接读取配置文件来获取需要创建实例的类
         //至于如何读取Properties，还有如何反射这里就不解释了
-        Properties p = new Properties();
-        InputStream in = null;
-        try {
-            in = Factory.class.getResourceAsStream("/factoryTest.properties");
-            p.load(in);
-        } catch (IOException e) {
-            logger.error("装载工厂配置文件出错了，具体的堆栈信息如下：", e);
-        }finally{
-            try {
-                in.close();
-            } catch (IOException e) {
-                logger.error("装载工厂配置文件关闭出错了，具体的堆栈信息如下：", e);
-            }
-        }
+        Properties p = PropertiesUtils.readProperties("/factoryTest.properties");
         //用反射去创建，那些例外处理等完善的工作这里就不做了
         Api api = null;
         try {
