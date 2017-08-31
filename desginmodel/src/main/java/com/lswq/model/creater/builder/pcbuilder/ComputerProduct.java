@@ -9,11 +9,16 @@ package com.lswq.model.creater.builder.pcbuilder;
  * 做了一些改进，把
  *
  * @see Builder#build 更改非抽象的方法，可以直接在此方法中实例类
+ * 为了使用回炉方法，做的妥协，更改实抽象方法
+ * <p>
+ * {@link Builder#build()} 和 {@link ComputerProduct#ComputerProduct(Builder)}
  */
-public class ComputerProduct {
+public abstract class ComputerProduct {
+
     protected String mBoard;
     protected String mDisplay;
     protected String mOS;
+
 
     protected ComputerProduct(Builder builder) {
         this.mBoard = builder.board;
@@ -21,10 +26,21 @@ public class ComputerProduct {
         this.mOS = builder.os;
     }
 
+
     public static abstract class Builder {
+
         protected String board;
         protected String display;
         protected String os;
+
+        public Builder() {
+        }
+
+        public Builder(ComputerProduct product) {
+            this.board = product.mBoard;
+            this.display = product.mDisplay;
+            this.os = product.mOS;
+        }
 
         public abstract ComputerProduct.Builder buildBoard(String board);
 
@@ -32,10 +48,20 @@ public class ComputerProduct {
 
         public abstract ComputerProduct.Builder buildOS();
 
-        public ComputerProduct build() {
-            return new ComputerProduct(this);
-        }
+        /**
+         * 在子类中实现，方便使用回炉方法进行处理
+         *
+         * @return
+         */
+        public abstract ComputerProduct build();
     }
+
+    /**
+     * 如果想要使用builder的回炉方法，必须有子类实现此方法，也可以不实现
+     *
+     * @return
+     */
+    public abstract Builder newBuilder();
 
     @Override
     public String toString() {

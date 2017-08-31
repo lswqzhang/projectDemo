@@ -7,9 +7,10 @@ public class Director {
         this.mBuilder = builder;
     }
 
-    public void buildPC(String board, String display) {
-        mBuilder.buildBoard(board)
+    public ComputerProduct buildPC(String board, String display) {
+        return mBuilder.buildBoard(board)
                 .buildDisplay(display)
-                .buildOS();
+                .buildOS()
+                .build();
     }
 }

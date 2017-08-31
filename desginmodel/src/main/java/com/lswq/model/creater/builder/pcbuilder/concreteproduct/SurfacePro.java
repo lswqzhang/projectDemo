@@ -8,7 +8,19 @@ public class SurfacePro extends ComputerProduct {
         super(builder);
     }
 
+    @Override
+    public ComputerProduct.Builder newBuilder() {
+        return new SurfacePro.Builder(this);
+    }
+
     public static class Builder extends ComputerProduct.Builder {
+
+        public Builder() {
+        }
+
+        public Builder(ComputerProduct product) {
+            super(product);
+        }
 
         @Override
         public ComputerProduct.Builder buildBoard(String board) {
@@ -26,6 +38,11 @@ public class SurfacePro extends ComputerProduct {
         public ComputerProduct.Builder buildOS() {
             this.os = "Mac OS X 10.10";
             return this;
+        }
+
+        @Override
+        public ComputerProduct build() {
+            return new SurfacePro(this);
         }
     }
 }
