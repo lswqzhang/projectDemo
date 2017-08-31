@@ -13,7 +13,7 @@ import java.util.Properties;
  *
  * Created by zhangsw on 2016/12/1.
  */
-public class Factory {
+public abstract class Factory {
 
 
     private static final Logger logger = LoggerFactory.getLogger(Factory.class);
@@ -32,13 +32,12 @@ public class Factory {
             in = Factory.class.getResourceAsStream("/factoryTest.properties");
             p.load(in);
         } catch (IOException e) {
-            logger.info("装载工厂配置文件出错了，具体的堆栈信息如下：");
-            e.printStackTrace();
+            logger.error("装载工厂配置文件出错了，具体的堆栈信息如下：", e);
         }finally{
             try {
                 in.close();
             } catch (IOException e) {
-                e.printStackTrace();
+                logger.error("装载工厂配置文件关闭出错了，具体的堆栈信息如下：", e);
             }
         }
         //用反射去创建，那些例外处理等完善的工作这里就不做了

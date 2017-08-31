@@ -82,6 +82,11 @@
             <artifactId>spring-web</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>javax.inject</groupId>
+            <artifactId>javax.inject</artifactId>
+        </dependency>
+
         <!-- spring核心框架 -->
 
 

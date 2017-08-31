@@ -25,8 +25,8 @@
 
 
     <properties>
-        <org.springframework.version>3.2.9.RELEASE</org.springframework.version>
-        <org.springframework.security.version>3.2.9.RELEASE</org.springframework.security.version>
+        <org.springframework.version>4.3.10.RELEASE</org.springframework.version>
+        <org.springframework.security.version>4.3.10.RELEASE</org.springframework.security.version>
         <!-- 防止json提示下载 -->
         <com.fasterxml.jackson.version>2.6.6</com.fasterxml.jackson.version>
         <elasticsearch-version>2.3.5</elasticsearch-version>
@@ -139,6 +139,16 @@
                 <artifactId>spring-expression</artifactId>
                 <version>${org.springframework.version}</version>
             </dependency>
+
+            <!-- https://mvnrepository.com/artifact/javax.inject/javax.inject -->
+            <dependency>
+                <groupId>javax.inject</groupId>
+                <artifactId>javax.inject</artifactId>
+                <version>1</version>
+            </dependency>
+
+
+
             <!-- spring核心框架 -->
 
             <!-- spring aop -->
