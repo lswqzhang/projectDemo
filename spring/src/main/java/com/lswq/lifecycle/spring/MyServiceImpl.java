@@ -1,4 +1,4 @@
-package com.lswq.spring;
+package com.lswq.lifecycle.spring;
 
 public class MyServiceImpl implements MyService {
     @Override

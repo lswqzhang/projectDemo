@@ -140,6 +140,8 @@
                 <version>${org.springframework.version}</version>
             </dependency>
 
+
+
             <!-- https://mvnrepository.com/artifact/javax.inject/javax.inject -->
             <dependency>
                 <groupId>javax.inject</groupId>
@@ -152,11 +154,39 @@
             <!-- spring核心框架 -->
 
             <!-- spring aop -->
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-aop</artifactId>
+                <version>${org.springframework.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-aspects</artifactId>
+                <version>${org.springframework.version}</version>
+            </dependency>
+            
             <dependency>
                 <groupId>org.aspectj</groupId>
                 <artifactId>aspectjweaver</artifactId>
-                <version>1.8.1</version>
+                <version>1.8.10</version>
             </dependency>
+
+            <dependency>
+                <groupId>org.aspectj</groupId>
+                <artifactId>aspectjrt</artifactId>
+                <version>1.8.10</version>
+            </dependency>
+            
+            <dependency>
+                <groupId>cglib</groupId>
+                <artifactId>cglib</artifactId>
+                <version>3.2.5</version>
+            </dependency>
+
+
+
             <!-- spring aop -->
 
 

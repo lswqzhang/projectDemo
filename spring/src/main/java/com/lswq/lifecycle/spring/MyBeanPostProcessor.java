@@ -1,4 +1,4 @@
-package com.lswq.spring;
+package com.lswq.lifecycle.spring;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;

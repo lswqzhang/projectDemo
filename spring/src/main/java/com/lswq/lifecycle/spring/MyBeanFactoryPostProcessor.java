@@ -1,4 +1,4 @@
-package com.lswq.spring;
+package com.lswq.lifecycle.spring;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanDefinition;
@@ -30,7 +30,7 @@ public class MyBeanFactoryPostProcessor implements BeanDefinitionRegistryPostPro
         RootBeanDefinition beanDefinition = new RootBeanDefinition(MyServiceImpl.class); //Service实现
         beanDefinition.setTargetType(MyService.class); //Service接口
         beanDefinition.setRole(BeanDefinition.ROLE_APPLICATION);
-        registry.registerBeanDefinition("myBeanName", beanDefinition );
+        registry.registerBeanDefinition("myBeanName", beanDefinition);
     }
 
     /**
