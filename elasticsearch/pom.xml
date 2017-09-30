@@ -27,6 +27,10 @@
             <artifactId>logback-ext-spring</artifactId>
         </dependency>
         <!-- 日志 -->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+        </dependency>
         <!-- 测试 -->
         <dependency>
             <groupId>junit</groupId>

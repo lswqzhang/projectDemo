@@ -3,7 +3,7 @@
 <configuration scan="true" scanPeriod="60 seconds" debug="false" status="warn">
 
     <property name="APP_Name" value="logbackDemo"/>
-    <property name="log_path" value="/Users/zhangshaowei/logfile/" />
+    <property name="log_path" value="/data/applogs/elastic/" />
     <timestamp key="bySecond" datePattern="yyyyMMdd'T'HHmmss"/>
     <contextName>${APP_Name}</contextName>
 
