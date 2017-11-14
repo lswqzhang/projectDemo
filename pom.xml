@@ -21,6 +21,7 @@
         <module>spring</module>
         <module>thrift</module>
         <module>jdbc</module>
+        <module>collections</module>
     </modules>
 
 
@@ -365,7 +366,16 @@
                 <version>0.26</version>
             </dependency>
             <!-- dubbox -->
-            
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>18.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-collections4</artifactId>
+                <version>4.0</version>
+            </dependency>
         </dependencies>
 
     </dependencyManagement>

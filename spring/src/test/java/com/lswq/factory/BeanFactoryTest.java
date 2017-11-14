@@ -29,10 +29,4 @@ public class BeanFactoryTest {
         System.err.println("test bean test str is :" + testBean.getTestStr());
     }
     
-    
-    @Test
-    public void springTest() throws InterruptedException {
-        DefaultNamespaceHandlerResolver resolver = new DefaultNamespaceHandlerResolver();
-        System.err.println("resolver = " + resolver.handlerMappings);
-    }
 }
