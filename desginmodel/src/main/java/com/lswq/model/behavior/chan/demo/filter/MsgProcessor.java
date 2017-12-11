@@ -1,10 +1,14 @@
 package com.lswq.model.behavior.chan.demo.filter;
 
+/**
+ * 消息处理过虑器
+ *
+ * @author zhangsw
+ */
 public class MsgProcessor {
 
     private String msg;
 
-    //Filter[] filters = {new HTMLFilter(), new SensitiveFilter(), new FaceFilter()};
     FilterChain fc;
 
     public FilterChain getFc() {
@@ -25,9 +29,7 @@ public class MsgProcessor {
 
     public String process() {
 
-
         return fc.doFilter(msg);
-
 
     }
 

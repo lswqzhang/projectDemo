@@ -3,7 +3,7 @@ package com.lswq.model.behavior.chan.demo.filter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FilterChain implements Filter {
+public class FilterChain {
 
     List<Filter> filters = new ArrayList<>();
 
