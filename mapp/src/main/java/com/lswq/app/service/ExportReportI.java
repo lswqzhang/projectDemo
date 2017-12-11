@@ -1,8 +1,6 @@
 package com.lswq.app.service;
 
 
-import com.lswq.app.model.ReportBean;
-
 public interface ExportReportI {
 
     /**
