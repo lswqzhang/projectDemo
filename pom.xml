@@ -22,6 +22,7 @@
         <module>thrift</module>
         <module>jdbc</module>
         <module>pdftoimg</module>
+        <module>collections</module>
     </modules>
 
 
@@ -64,6 +65,12 @@
                 <version>0.1.4</version>
             </dependency>
             <!-- 日志 -->
+            
+            <dependency>
+                <groupId>org.bouncycastle</groupId>
+                <artifactId>bcpkix-jdk15on</artifactId>
+                <version>1.54</version>
+            </dependency>
 
             
             
@@ -141,6 +148,8 @@
                 <version>${org.springframework.version}</version>
             </dependency>
 
+
+
             <!-- https://mvnrepository.com/artifact/javax.inject/javax.inject -->
             <dependency>
                 <groupId>javax.inject</groupId>
@@ -153,11 +162,39 @@
             <!-- spring核心框架 -->
 
             <!-- spring aop -->
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-aop</artifactId>
+                <version>${org.springframework.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-aspects</artifactId>
+                <version>${org.springframework.version}</version>
+            </dependency>
+            
             <dependency>
                 <groupId>org.aspectj</groupId>
                 <artifactId>aspectjweaver</artifactId>
-                <version>1.8.1</version>
+                <version>1.8.10</version>
             </dependency>
+
+            <dependency>
+                <groupId>org.aspectj</groupId>
+                <artifactId>aspectjrt</artifactId>
+                <version>1.8.10</version>
+            </dependency>
+            
+            <dependency>
+                <groupId>cglib</groupId>
+                <artifactId>cglib</artifactId>
+                <version>3.2.5</version>
+            </dependency>
+
+
+
             <!-- spring aop -->
 
 
@@ -183,6 +220,24 @@
                 <artifactId>gson</artifactId>
                 <version>2.8.0</version>
             </dependency>
+
+            <dependency>
+                <groupId>com.google.protobuf</groupId>
+                <artifactId>protobuf-java</artifactId>
+                <version>2.6.1</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.protobuf.nano</groupId>
+                <artifactId>protobuf-javanano</artifactId>
+                <version>3.0.0-alpha-5</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.barchart.udt</groupId>
+                <artifactId>barchart-udt-bundle</artifactId>
+                <version>2.3.0</version>
+            </dependency>
+            
             <!-- es -->
             <dependency>
                 <groupId>org.elasticsearch</groupId>
@@ -288,36 +343,10 @@
                 <version>${servlet-version}</version>
             </dependency>
 
-
             <dependency>
-                <groupId>org.jboss.resteasy</groupId>
-                <artifactId>resteasy-jaxrs</artifactId>
-                <version>3.0.7.Final</version>
-            </dependency>
-            <dependency>
-                <groupId>org.jboss.resteasy</groupId>
-                <artifactId>resteasy-client</artifactId>
-                <version>3.0.7.Final</version>
-            </dependency>
-            <dependency>
-                <groupId>org.jboss.resteasy</groupId>
-                <artifactId>resteasy-netty</artifactId>
-                <version>3.0.7.Final</version>
-            </dependency>
-            <dependency>
-                <groupId>org.jboss.resteasy</groupId>
-                <artifactId>resteasy-jdk-http</artifactId>
-                <version>3.0.7.Final</version>
-            </dependency>
-            <dependency>
-                <groupId>org.jboss.resteasy</groupId>
-                <artifactId>resteasy-jackson-provider</artifactId>
-                <version>3.0.7.Final</version>
-            </dependency>
-            <dependency>
-                <groupId>org.jboss.resteasy</groupId>
-                <artifactId>resteasy-jaxb-provider</artifactId>
-                <version>3.0.7.Final</version>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-all</artifactId>
+                <version>4.1.17.Final</version>
             </dependency>
 
             <dependency>
@@ -342,7 +371,18 @@
                 <version>0.26</version>
             </dependency>
             <!-- dubbox -->
-            
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>23.5-jre</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-collections4</artifactId>
+                <version>4.0</version>
+            </dependency>
+
+
         </dependencies>
 
     </dependencyManagement>
