@@ -10,7 +10,7 @@ import org.springframework.beans.factory.FactoryBean;
  *
  * @author zhangshaowei
  */
-public class PigFactoryBean implements FactoryBean<Pig> {
+public class CommonObjFactoryBean implements FactoryBean<Pig> {
 
     private String pigInfo;
 

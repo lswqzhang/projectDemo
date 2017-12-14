@@ -30,7 +30,7 @@
         <property name="age" value="28"/>
     </bean>
 
-    <bean id="pigFactory" class="com.lswq.lifecycle.spring.factorybean.PigFactoryBean">
+    <bean id="pigFactory" class="com.lswq.lifecycle.spring.factorybean.CommonObjFactoryBean">
         <property name="pigInfo" value="小小倩,0"></property>
     </bean>
 
