@@ -7,24 +7,32 @@
             http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd 
             http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd"
        default-lazy-init="false">
-    
-    <context:annotation-config/>
-    
-    <!-- 类的定义和创建 -->
-    <bean id="beanFactoryPostProcessor" class="com.lswq.lifecycle.spring.MyBeanFactoryPostProcessor"/>
-    <!-- 类实例化 -->
-    <bean id="instantiationAwareBeanPostProcessor"
-          class="com.lswq.lifecycle.spring.MyInstantiationAwareBeanPostProcessor"/>
-    <!-- 类实例化的前后的操作 -->
-    <bean id="beanPostProcessor" class="com.lswq.lifecycle.spring.MyBeanPostProcessor"/>
 
-    <bean id="person" class="com.lswq.lifecycle.spring.Person"
+    <context:annotation-config/>
+
+    <!-- 类的定义和创建 -->
+    <bean id="beanFactoryPostProcessor" class="com.lswq.lifecycle.spring.postprocess.MyBeanFactoryPostProcessor"/>
+    <!-- 类实例化 -->
+    <bean id="instantiationAwareBeanPostProcessor" class="com.lswq.lifecycle.spring.postprocess.MyInstantiationAwareBeanPostProcessor"/>
+    <!-- 类实例化的前后的操作 -->
+    <bean id="beanPostProcessor" class="com.lswq.lifecycle.spring.postprocess.MyBeanPostProcessor"/>
+
+    <bean id="person" class="com.lswq.lifecycle.spring.springbeaninit.Person"
           init-method="myInit"
           destroy-method="myDestroy"
           scope="singleton"
           p:name="张三"
           p:address="广州"
           p:phone="15900000000"/>
+
+    <bean id="pigObj" class="com.lswq.lifecycle.spring.bean.Pig">
+        <property name="name" value="刘倩"/>
+        <property name="age" value="28"/>
+    </bean>
+
+    <bean id="pigFactory" class="com.lswq.lifecycle.spring.factorybean.PigFactoryBean">
+        <property name="pigInfo" value="小小倩,0"></property>
+    </bean>
 
 
 </beans>

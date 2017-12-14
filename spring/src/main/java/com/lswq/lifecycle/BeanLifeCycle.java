@@ -1,7 +1,8 @@
 package com.lswq.lifecycle;
 
-import com.lswq.lifecycle.spring.MyService;
-import com.lswq.lifecycle.spring.Person;
+import com.lswq.lifecycle.spring.service.MyService;
+import com.lswq.lifecycle.spring.springbeaninit.Person;
+import com.lswq.lifecycle.spring.bean.Pig;
 import org.springframework.beans.BeansException;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -40,6 +41,15 @@ public class BeanLifeCycle {
         //  得到Person，并使用
         Person person = ctx.getBean("person", Person.class);
         System.out.println(person);
+
+
+        Pig pigObj = ctx.getBean("pigObj", Pig.class);
+
+        System.err.println("pig obj archive from ctx is: " + pigObj);
+
+        Pig pigFactory = (Pig) ctx.getBean("pigFactory");
+
+        System.err.println("pig obj archive from factory bean is: " + pigFactory);
 
         MyService myBeanName = ctx.getBean("myBeanName", MyService.class);
         myBeanName.say();

@@ -1,4 +1,4 @@
-package com.lswq.lifecycle.spring;
+package com.lswq.lifecycle.spring.postprocess;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.PropertyValues;
