@@ -1,4 +1,4 @@
-package com.lswq.model.behavior.chan.demo.filter;
+package com.lswq.model.behavior.chain.ma.demo.filter;
 
 public class SensitiveFilter implements Filter {
 

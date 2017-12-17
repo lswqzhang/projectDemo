@@ -1,10 +1,10 @@
-package com.lswq.model.behavior.chan.web;
+package com.lswq.model.behavior.chain.ma.web;
 
-import com.lswq.model.behavior.chan.web.bean.Request;
-import com.lswq.model.behavior.chan.web.bean.Response;
-import com.lswq.model.behavior.chan.web.filter.SensitiveFilter;
-import com.lswq.model.behavior.chan.web.filter.FilterChain;
-import com.lswq.model.behavior.chan.web.filter.HTMLFilter;
+import com.lswq.model.behavior.chain.ma.web.bean.Request;
+import com.lswq.model.behavior.chain.ma.web.bean.Response;
+import com.lswq.model.behavior.chain.ma.web.filter.SensitiveFilter;
+import com.lswq.model.behavior.chain.ma.web.filter.FilterChain;
+import com.lswq.model.behavior.chain.ma.web.filter.HTMLFilter;
 
 public class Main {
 

@@ -1,4 +1,4 @@
-package com.lswq.model.behavior.chan.demo.filter;
+package com.lswq.model.behavior.chain.ma.demo.filter;
 
 import java.util.ArrayList;
 import java.util.List;

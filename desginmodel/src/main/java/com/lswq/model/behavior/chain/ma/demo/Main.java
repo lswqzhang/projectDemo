@@ -1,6 +1,6 @@
-package com.lswq.model.behavior.chan.demo;
+package com.lswq.model.behavior.chain.ma.demo;
 
-import com.lswq.model.behavior.chan.demo.filter.*;
+import com.lswq.model.behavior.chain.ma.demo.filter.*;
 
 public class Main {
 

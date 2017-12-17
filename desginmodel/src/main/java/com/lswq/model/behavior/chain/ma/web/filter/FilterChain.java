@@ -1,7 +1,7 @@
-package com.lswq.model.behavior.chan.web.filter;
+package com.lswq.model.behavior.chain.ma.web.filter;
 
-import com.lswq.model.behavior.chan.web.bean.Request;
-import com.lswq.model.behavior.chan.web.bean.Response;
+import com.lswq.model.behavior.chain.ma.web.bean.Request;
+import com.lswq.model.behavior.chain.ma.web.bean.Response;
 
 import java.util.ArrayList;
 import java.util.List;

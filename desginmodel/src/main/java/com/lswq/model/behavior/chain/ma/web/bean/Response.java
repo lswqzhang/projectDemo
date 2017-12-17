@@ -1,4 +1,4 @@
-package com.lswq.model.behavior.chan.web.bean;
+package com.lswq.model.behavior.chain.ma.web.bean;
 
 public class Response {
     public String responseStr;
