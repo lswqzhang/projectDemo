@@ -28,7 +28,7 @@ import io.netty.util.concurrent.DefaultThreadFactory;
 import java.util.concurrent.ThreadFactory;
 
 /**
- * UDT Byte Stream Client
+ * UDT Byte Stream NioClient
  * <p>
  * Sends one message when a connection is open and echoes back any received data
  * to the server. Simply put, the echo client initiates the ping-pong traffic

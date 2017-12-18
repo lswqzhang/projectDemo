@@ -29,22 +29,24 @@ import io.netty.handler.logging.LoggingHandler;
  */
 public final class EchoServer {
 
-    
+
     static final int PORT = Integer.parseInt(System.getProperty("port", "8007"));
 
     public static void main(String[] args) throws Exception {
-        
+
+
         // Configure the server.
-        int singleReactor = 1;
-        EventLoopGroup bossGroup = new NioEventLoopGroup(singleReactor);
-        EventLoopGroup workerGroup = new NioEventLoopGroup(singleReactor);
+        // 多线程模型
+        int nThreads = 1;
+        EventLoopGroup parentGroup = new NioEventLoopGroup(nThreads);
+        EventLoopGroup childGroup = new NioEventLoopGroup();
         try {
             ServerBootstrap b = new ServerBootstrap();
-            b.group(bossGroup, workerGroup)
-             .channel(NioServerSocketChannel.class)
-             .option(ChannelOption.SO_BACKLOG, 100)
-             .handler(new LoggingHandler(LogLevel.INFO))
-             .childHandler(new EchoChannelPipelineInitializer());
+            b.group(parentGroup, childGroup)
+                    .channel(NioServerSocketChannel.class)
+                    .option(ChannelOption.SO_BACKLOG, 100)
+                    .handler(new LoggingHandler(LogLevel.INFO))
+                    .childHandler(new EchoServerChannelInitializer());
 
             // Start the server.
             ChannelFuture f = b.bind(PORT).sync();
@@ -53,8 +55,8 @@ public final class EchoServer {
             f.channel().closeFuture().sync();
         } finally {
             // Shut down all event loops to terminate all threads.
-            bossGroup.shutdownGracefully();
-            workerGroup.shutdownGracefully();
+            parentGroup.shutdownGracefully();
+            childGroup.shutdownGracefully();
         }
     }
 }

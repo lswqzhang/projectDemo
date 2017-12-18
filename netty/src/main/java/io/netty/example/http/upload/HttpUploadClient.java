@@ -173,7 +173,7 @@ public final class HttpUploadClient {
         headers.set(HttpHeaderNames.ACCEPT_CHARSET, "ISO-8859-1,utf-8;q=0.7,*;q=0.7");
         headers.set(HttpHeaderNames.ACCEPT_LANGUAGE, "fr");
         headers.set(HttpHeaderNames.REFERER, uriSimple.toString());
-        headers.set(HttpHeaderNames.USER_AGENT, "Netty Simple Http Client side");
+        headers.set(HttpHeaderNames.USER_AGENT, "Netty Simple Http NioClient side");
         headers.set(HttpHeaderNames.ACCEPT, "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8");
 
         //connection will not close but needed

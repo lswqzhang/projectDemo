@@ -1,5 +1,6 @@
-package com.lswq.lifecycle.spring;
+package com.lswq.lifecycle.spring.springbeaninit;
 
+import com.lswq.lifecycle.spring.postprocess.MyBeanPostProcessor;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.*;
 import org.springframework.context.*;

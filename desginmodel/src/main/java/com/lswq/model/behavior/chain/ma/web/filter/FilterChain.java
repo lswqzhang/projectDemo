@@ -22,10 +22,17 @@ public class FilterChain implements Filter {
 
     @Override
     public void doFilter(Request request, Response response, FilterChain chain) {
+
+        System.err.println("\n -- start chain -- \n");
+
+
         if (index == filters.size()) return;
 
         Filter f = filters.get(index);
         index++;
         f.doFilter(request, response, chain);
+
+
+        System.err.println("\n -- end chain -- \n");
     }
 }

@@ -30,7 +30,7 @@ import java.net.InetAddress;
 import java.net.InetSocketAddress;
 
 /**
- * SCTP Echo Client with multi-homing support.
+ * SCTP Echo NioClient with multi-homing support.
  */
 public final class SctpMultiHomingEchoClient {
 
