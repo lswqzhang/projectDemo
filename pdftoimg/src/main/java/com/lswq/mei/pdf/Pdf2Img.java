@@ -6,6 +6,7 @@ import org.icepdf.core.pobjects.Page;
 import org.icepdf.core.util.GraphicsRenderingHints;
 
 import javax.imageio.ImageIO;
+import javax.swing.*;
 import java.awt.image.BufferedImage;
 import java.awt.image.RenderedImage;
 import java.io.File;

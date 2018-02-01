@@ -45,7 +45,7 @@ public final class EchoServer {
             b.group(parentGroup, childGroup)
                     .channel(NioServerSocketChannel.class)
                     .option(ChannelOption.SO_BACKLOG, 100)
-                    .handler(new LoggingHandler(LogLevel.INFO))
+                    .handler(new LoggingHandler(LogLevel.DEBUG))
                     .childHandler(new EchoServerChannelInitializer());
 
             // Start the server.

@@ -21,12 +21,12 @@ public class Server {
         ServerSocketChannel ssc = ServerSocketChannel.open();
         // 服务器配置为非阻塞 
         ssc.configureBlocking(false);
-        // 进行服务的绑定 
-        ssc.bind(new InetSocketAddress("localhost", 8001));
         // 通过open()方法找到Selector
         selector = SelectorProvider.provider().openSelector();
         // 将channel注册到selector中,并将channel设置成等待新的连接
         ssc.register(selector, SelectionKey.OP_ACCEPT);
+        // 进行服务的绑定 
+        ssc.bind(new InetSocketAddress("localhost", 8001));
 
         while (!Thread.currentThread().isInterrupted()) {
             System.err.println("selector");

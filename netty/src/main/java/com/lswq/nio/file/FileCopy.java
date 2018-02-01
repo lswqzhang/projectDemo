@@ -10,6 +10,7 @@ public class FileCopy {
     public static void main(String[] args) throws IOException {
         nioReadFile();
         nioWriteFile();
+        System.err.println();
         System.err.println("buffer analysis");
         bufferAnalysis();
     }
@@ -39,7 +40,7 @@ public class FileCopy {
      * @throws IOException
      */
     private static void nioReadFile() throws IOException {
-        RandomAccessFile aFile = new RandomAccessFile("/Users/zhangsw/Desktop/资产盘点系统上线.rtf", "rw");
+        RandomAccessFile aFile = new RandomAccessFile("/Users/zhangsw/Desktop/test.rtf", "rw");
         FileChannel inChannel = aFile.getChannel();
         ByteBuffer buffer = ByteBuffer.allocate(4096);
         int read = inChannel.read(buffer);
