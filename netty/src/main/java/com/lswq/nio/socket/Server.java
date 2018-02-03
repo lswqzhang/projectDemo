@@ -57,7 +57,7 @@ public class Server {
         }
     }
 
-    private void write(SelectionKey key) throws IOException, ClosedChannelException {
+    private void write(SelectionKey key) throws IOException {
         SocketChannel channel = (SocketChannel) key.channel();
         System.out.println("write:" + str);
 

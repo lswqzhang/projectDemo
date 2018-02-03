@@ -8,11 +8,7 @@ import java.nio.channels.FileChannel;
 
 public class FileCopy {
     public static void main(String[] args) throws IOException {
-        nioReadFile();
-        nioWriteFile();
-        System.err.println();
-        System.err.println("buffer analysis");
-        bufferAnalysis();
+        copy();
     }
 
 
@@ -53,6 +49,39 @@ public class FileCopy {
             read = inChannel.read(buffer);
         }
         aFile.close();
+    }
+
+    /**
+     * 文件copy操作
+     * 
+     * @throws IOException
+     */
+    private static void copy() throws IOException {
+        RandomAccessFile source = new RandomAccessFile("/Users/zhangsw/Desktop/学习.md", "rw");
+        // 生成一个from channel
+        FileChannel inChannel = source.getChannel();
+        RandomAccessFile target = new RandomAccessFile("/Users/zhangsw/Desktop/学习_copy.md", "rw");
+        // 生成一个to channel
+        FileChannel targetChannel = target.getChannel();
+        // 设置一个ByteBuffer，通过ByteBuffer连接两个Channel
+        ByteBuffer buffer = ByteBuffer.allocate(4096);
+        int read;
+        do {
+            // 从from channel读取数据到ByteBuffer当中
+            read = inChannel.read(buffer);
+            // 通过flip()转换读写操作
+            buffer.flip();
+            while (buffer.hasRemaining()) {
+                // ByteBuffer当中的数据写入到to channel中
+                targetChannel.write(buffer);
+            }
+            buffer.clear();
+        } while (read != -1);
+        
+        source.close();
+        target.close();
+        inChannel.close();
+        targetChannel.close();
     }
 
     private static void bufferAnalysis() {

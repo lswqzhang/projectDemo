@@ -3,13 +3,19 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:consumer="http://sping.lswq.com/schema/pig"
        xsi:schemaLocation="
             http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd 
-            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd"
+            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+            http://sping.lswq.com/schema/pig http://sping.lswq.com/schema/pig/pig.xsd"
        default-lazy-init="false">
 
     <context:annotation-config/>
+    
 
+    <!-- id 是继承自 spring -->
+    <consumer:pig id="pigSchema" name="zhang" age="23" />
+    
     <!-- 类的定义和创建 -->
     <bean id="beanFactoryPostProcessor" class="com.lswq.lifecycle.spring.postprocess.MyBeanFactoryPostProcessor"/>
     <!-- 类实例化 -->
