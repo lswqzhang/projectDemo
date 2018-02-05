@@ -1,4 +1,4 @@
-package com.lswq.model.behavior.chan.link;
+package com.lswq.model.behavior.chain.nettychain;
 
 /**
  * 请求流
