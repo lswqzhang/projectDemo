@@ -23,6 +23,7 @@
         <module>jdbc</module>
         <module>pdftoimg</module>
         <module>collections</module>
+        <module>guava</module>
     </modules>
 
 
@@ -374,15 +375,14 @@
             <dependency>
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
-                <version>23.5-jre</version>
+                <version>23.6-jre</version>
             </dependency>
+
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-collections4</artifactId>
                 <version>4.0</version>
             </dependency>
-
-
         </dependencies>
 
     </dependencyManagement>
