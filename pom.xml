@@ -14,6 +14,7 @@
         <module>desginmodel</module>
         <module>threadlearn</module>
         <module>mapp</module>
+        <module>guava</module>
         <module>datastruct</module>
         <module>vm</module>
         <module>elasticsearch</module>
