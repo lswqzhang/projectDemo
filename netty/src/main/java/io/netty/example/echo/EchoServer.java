@@ -36,14 +36,16 @@ public final class EchoServer {
 
 
         // Configure the server.
-        EventLoopGroup bossGroup = new NioEventLoopGroup(1);
-        EventLoopGroup workerGroup = new NioEventLoopGroup();
+        // 多线程模型
+        int nThreads = 1;
+        EventLoopGroup parentGroup = new NioEventLoopGroup(nThreads);
+        EventLoopGroup childGroup = new NioEventLoopGroup();
         try {
             ServerBootstrap b = new ServerBootstrap();
-            b.group(bossGroup, workerGroup)
+            b.group(parentGroup, childGroup)
                     .channel(NioServerSocketChannel.class)
                     .option(ChannelOption.SO_BACKLOG, 100)
-                    .handler(new LoggingHandler(LogLevel.INFO))
+                    .handler(new LoggingHandler(LogLevel.DEBUG))
                     .childHandler(new EchoServerChannelInitializer());
 
             // Start the server.
@@ -53,8 +55,8 @@ public final class EchoServer {
             f.channel().closeFuture().sync();
         } finally {
             // Shut down all event loops to terminate all threads.
-            bossGroup.shutdownGracefully();
-            workerGroup.shutdownGracefully();
+            parentGroup.shutdownGracefully();
+            childGroup.shutdownGracefully();
         }
     }
 }

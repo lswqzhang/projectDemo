@@ -23,7 +23,7 @@ import io.netty.handler.codec.spdy.SpdyHttpHeaders;
 import io.netty.handler.codec.spdy.SpdyHttpHeaders.Names;
 
 /**
- * Adds a unique client stream ID to the SPDY header. Client stream IDs MUST be odd.
+ * Adds a unique client stream ID to the SPDY header. NioClient stream IDs MUST be odd.
  */
 public class SpdyClientStreamIdHandler extends ChannelOutboundHandlerAdapter {
 
@@ -39,7 +39,7 @@ public class SpdyClientStreamIdHandler extends ChannelOutboundHandlerAdapter {
             HttpMessage httpMsg = (HttpMessage) msg;
             if (!httpMsg.headers().contains(SpdyHttpHeaders.Names.STREAM_ID)) {
                 httpMsg.headers().setInt(Names.STREAM_ID, currentStreamId);
-                // Client stream IDs are always odd
+                // NioClient stream IDs are always odd
                 currentStreamId += 2;
             }
         }

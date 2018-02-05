@@ -44,6 +44,10 @@ public class BeanLifeCycle {
 
 
         Pig pigObj = ctx.getBean("pigObj", Pig.class);
+        
+        Pig pig = ctx.getBean("pigSchema", Pig.class);
+
+        System.err.println("pig from schema is: " + pig);
 
         System.err.println("pig obj archive from ctx is: " + pigObj);
 

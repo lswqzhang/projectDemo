@@ -76,7 +76,7 @@ public class WebSocketClientHandler extends SimpleChannelInboundHandler<Object> 
 
     @Override
     public void channelInactive(ChannelHandlerContext ctx) {
-        System.out.println("WebSocket Client disconnected!");
+        System.out.println("WebSocket NioClient disconnected!");
     }
 
     @Override
@@ -85,10 +85,10 @@ public class WebSocketClientHandler extends SimpleChannelInboundHandler<Object> 
         if (!handshaker.isHandshakeComplete()) {
             try {
                 handshaker.finishHandshake(ch, (FullHttpResponse) msg);
-                System.out.println("WebSocket Client connected!");
+                System.out.println("WebSocket NioClient connected!");
                 handshakeFuture.setSuccess();
             } catch (WebSocketHandshakeException e) {
-                System.out.println("WebSocket Client failed to connect");
+                System.out.println("WebSocket NioClient failed to connect");
                 handshakeFuture.setFailure(e);
             }
             return;
@@ -104,11 +104,11 @@ public class WebSocketClientHandler extends SimpleChannelInboundHandler<Object> 
         WebSocketFrame frame = (WebSocketFrame) msg;
         if (frame instanceof TextWebSocketFrame) {
             TextWebSocketFrame textFrame = (TextWebSocketFrame) frame;
-            System.out.println("WebSocket Client received message: " + textFrame.text());
+            System.out.println("WebSocket NioClient received message: " + textFrame.text());
         } else if (frame instanceof PongWebSocketFrame) {
-            System.out.println("WebSocket Client received pong");
+            System.out.println("WebSocket NioClient received pong");
         } else if (frame instanceof CloseWebSocketFrame) {
-            System.out.println("WebSocket Client received closing");
+            System.out.println("WebSocket NioClient received closing");
             ch.close();
         }
     }

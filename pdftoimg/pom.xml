@@ -20,6 +20,12 @@
             <groupId>org.icepdf.os</groupId>
             <artifactId>icepdf-core</artifactId>
             <version>6.1.2</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>javax.media</groupId>
+                    <artifactId>jai-core</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
 
