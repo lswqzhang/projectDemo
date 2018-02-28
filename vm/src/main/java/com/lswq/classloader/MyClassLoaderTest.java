@@ -25,6 +25,7 @@ public class MyClassLoaderTest {
             
             new Thread(() -> {
                 try {
+                    System.err.println(Thread.currentThread());
                     MyClassLoader classLoader = new MyClassLoader(Thread.currentThread().getContextClassLoader());
                     // 循环依赖模块，为本模块设置父亲classloader
                     classLoader.getParentClassLoaders().put(jarFile.getAbsolutePath(), classLoader);

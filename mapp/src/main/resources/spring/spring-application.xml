@@ -26,6 +26,7 @@
 
     <bean id="myFilter" class="com.lswq.app.filter.RequestFilter"></bean>
 
+    <import resource="spring-persistent.xml" />
 	<import resource="spring-redis.xml"/>
 
 </beans>
