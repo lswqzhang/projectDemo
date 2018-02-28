@@ -1,13 +1,12 @@
-package com.zheng.controller;
+package com.lswq.controller;
 
-import javax.annotation.Resource;
-
+import com.lswq.model.User;
+import com.lswq.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.zheng.model.User;
-import com.zheng.service.UserService;
+import javax.annotation.Resource;
 
 @Controller
 public class UserController {

@@ -1,4 +1,4 @@
-package com.zheng.model;
+package com.lswq.model;
 
 public class User {
 	private Integer userId;  

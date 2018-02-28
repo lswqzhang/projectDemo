@@ -20,7 +20,7 @@ public class CollectionTest {
     
     @Before
     public void setUp() {
-        master = new Master(123, "zhang");
+        master = new Master(123, "lswq");
     }
     
     @Test

@@ -1,6 +1,6 @@
-package com.zheng.dao;
+package com.lswq.dao;
 
-import com.zheng.model.User;
+import com.lswq.model.User;
 
 public interface UserDao {
 	User selectUserById(Integer userId);  

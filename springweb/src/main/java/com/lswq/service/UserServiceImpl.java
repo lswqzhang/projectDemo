@@ -1,11 +1,10 @@
-package com.zheng.service;
+package com.lswq.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.zheng.dao.UserDao;
-import com.zheng.model.User;
-import com.zheng.service.UserService;
+import com.lswq.dao.UserDao;
+import com.lswq.model.User;
 
 @Service
 public class UserServiceImpl implements UserService {
