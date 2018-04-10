@@ -16,16 +16,35 @@ public class ForkJoinTest {
 
 
     public static void main(String[] args) {
-        ForkJoinPool pool = new ForkJoinPool();
+        
         List<List<Integer>> tasks = new ArrayList<>();
         List<Integer> one = Lists.newArrayList(1, 2, 3, 4);
         List<Integer> two = Lists.newArrayList(5, 6, 7, 8);
         List<Integer> three = Lists.newArrayList(9, 10, 11, 12);
         List<Integer> four = Lists.newArrayList(13, 14, 15, 16);
+        List<Integer> five = Lists.newArrayList(17, 18, 19, 20);
         tasks.add(one);
         tasks.add(two);
         tasks.add(three);
         tasks.add(four);
+        tasks.add(five);
+        useResult(tasks);
+        useReturn(tasks);
+    }
+
+    private static void useReturn(List<List<Integer>> tasks) {
+        ForkJoinPool pool = new ForkJoinPool();
+        System.out.println(pool.getPoolSize());
+        ForkJoinResultList resultList = new ForkJoinResultList(tasks);
+        List<Integer> invoke = pool.invoke(resultList);
+        pool.shutdown();
+        System.err.println(invoke);
+    }
+
+
+    private static void useResult(List<List<Integer>> tasks) {
+        ForkJoinPool pool = new ForkJoinPool();
+        System.out.println(pool.getPoolSize());
         List<Integer> result = new CopyOnWriteArrayList<>();
         pool.invoke(new ForkJoinTaskTest(tasks, result));
         pool.shutdown();
