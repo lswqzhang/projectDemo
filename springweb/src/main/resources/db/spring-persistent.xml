@@ -17,7 +17,7 @@
 
     <!-- 事务管理器 -->
     <bean id="transactionDBManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-        <property name="dataSource" ref="dataSource"/>
+        <constructor-arg name="dataSource" ref="dataSource" />
     </bean>
 
     <!-- 事务的传播特性 -->
@@ -35,7 +35,8 @@
         <aop:pointcut id="allManagerMethod" expression="execution(* com.lswq.service.*.*(..))"/>
         <aop:advisor pointcut-ref="allManagerMethod" advice-ref="txAdvice"/>
     </aop:config>
-
+    
+    
     <!-- spring集成MyBatis -->
     <!-- SqlSessionFactoryBean是一个工厂bean，它的作用就是解析配置（数据源、别名等）,用于产生Mybatis全局性的会话工厂SqlSessionFactory（也就是产生会话工厂的工厂Bean） -->
     <!-- SqlSessionFactory用于产生会话SqlSession对象(SqlSessionFactory相当于DataSource，SqlSession相当于Connection) -->

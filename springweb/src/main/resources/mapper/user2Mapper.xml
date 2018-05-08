@@ -7,7 +7,12 @@
 		<id column="USER_ID" property="userId" jdbcType="INTEGER" />
 		<result column="USER_NAME" property="userName" jdbcType="CHAR" />
 		<result column="USER_PASSWORD" property="userPassword" jdbcType="CHAR" />
+		<result column="STATUS" property="status" jdbcType="CHAR" />
+		<result column="STATE" property="state" jdbcType="CHAR" />
 	</resultMap>
+
+	
+	
 	<!-- 查询单条记录 -->
 	<select id="selectUserById" parameterType="int" resultMap="BaseResultMap">
 		SELECT * FROM t_user WHERE USER_ID = #{userId}

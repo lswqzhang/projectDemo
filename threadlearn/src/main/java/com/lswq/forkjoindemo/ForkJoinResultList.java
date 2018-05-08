@@ -6,8 +6,7 @@ import java.util.List;
 import java.util.concurrent.RecursiveTask;
 
 public class ForkJoinResultList extends RecursiveTask<List<Integer>> {
-
-
+    
     /**
      * 数据分页对象
      */
@@ -36,7 +35,6 @@ public class ForkJoinResultList extends RecursiveTask<List<Integer>> {
             taskRight.fork();
             taskLeft.join().addAll(taskRight.join());
             result = taskLeft.join();
-            
             return result;
         }
     }

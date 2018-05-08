@@ -26,6 +26,7 @@
         <module>collections</module>
         <module>guava</module>
         <module>springweb</module>
+        <module>springbootdemo</module>
     </modules>
 
 

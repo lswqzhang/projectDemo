@@ -33,21 +33,21 @@ public class ForkJoinTest {
     }
 
     private static void useReturn(List<List<Integer>> tasks) {
-        ForkJoinPool pool = new ForkJoinPool();
-        System.out.println(pool.getPoolSize());
+        ForkJoinPool pool = ForkJoinPool.commonPool();
         ForkJoinResultList resultList = new ForkJoinResultList(tasks);
         List<Integer> invoke = pool.invoke(resultList);
         pool.shutdown();
         System.err.println(invoke);
+        System.out.println(pool.getPoolSize());
     }
 
 
     private static void useResult(List<List<Integer>> tasks) {
-        ForkJoinPool pool = new ForkJoinPool();
-        System.out.println(pool.getPoolSize());
+        ForkJoinPool pool = ForkJoinPool.commonPool();
         List<Integer> result = new CopyOnWriteArrayList<>();
         pool.invoke(new ForkJoinTaskTest(tasks, result));
         pool.shutdown();
+        System.out.println(pool.getPoolSize());
         System.err.println("======" + result);
     }
 }
